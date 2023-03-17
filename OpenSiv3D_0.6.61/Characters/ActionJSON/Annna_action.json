@@ -1,0 +1,321 @@
+﻿{
+  "Actions": [
+    {
+      "Acts": [
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 0.5
+          },
+          "Start": {
+            "Conection": [],
+            "start_time": 0.05
+          },
+          "name": "punch"
+        },
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "start",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "JumpAttack"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 1.5
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "recovery"
+        },
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "recovery",
+                "time": 0.0
+              },
+              {
+                "from": "end",
+                "name": "recovery",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "start",
+                "name": "recovery",
+                "time": 0.0
+              },
+              {
+                "from": "start",
+                "name": "recovery",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "JumpTexture"
+        }
+      ],
+      "name": "JumpPunch"
+    },
+    {
+      "Acts": [
+        {
+          "Continue": {
+            "Conection": [],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [],
+            "start_time": 0.0
+          },
+          "name": "jump"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "jump",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "fall"
+        },
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "fall",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "start",
+                "name": "jump",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "JumpTexture"
+        }
+      ],
+      "name": "Jumping"
+    },
+    {
+      "Acts": [
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "recovery",
+                "time": 0.0
+              },
+              {
+                "from": "end",
+                "name": "recovery",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "start",
+                "name": "recovery",
+                "time": 0.0
+              },
+              {
+                "from": "start",
+                "name": "recovery",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "StandTexture"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 0.2
+          },
+          "Start": {
+            "Conection": [],
+            "start_time": 0.1
+          },
+          "name": "punch"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 0.4
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "recovery"
+        },
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "start",
+                "name": "punch",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "PunchTexture"
+        }
+      ],
+      "name": "Punching"
+    }
+  ],
+  "Pos": [
+    {
+      "Acts_pos": [
+        {
+          "endpos": "(486, 136)",
+          "name": "punch",
+          "number": 0,
+          "startpos": "(354, 136)"
+        },
+        {
+          "endpos": "(474, 442)",
+          "name": "JumpAttack",
+          "number": 1,
+          "startpos": "(344, 442)"
+        },
+        {
+          "endpos": "(578, 272)",
+          "name": "recovery",
+          "number": 2,
+          "startpos": "(481, 272)"
+        },
+        {
+          "endpos": "(586, 488)",
+          "name": "JumpTexture",
+          "number": 3,
+          "startpos": "(478, 488)"
+        }
+      ],
+      "name": "JumpPunch"
+    },
+    {
+      "Acts_pos": [
+        {
+          "endpos": "(346, 131)",
+          "name": "jump",
+          "number": 4,
+          "startpos": "(264, 131)"
+        },
+        {
+          "endpos": "(441, 199)",
+          "name": "fall",
+          "number": 0,
+          "startpos": "(340, 199)"
+        },
+        {
+          "endpos": "(440, 314)",
+          "name": "JumpTexture",
+          "number": 1,
+          "startpos": "(258, 314)"
+        }
+      ],
+      "name": "Jumping"
+    },
+    {
+      "Acts_pos": [
+        {
+          "endpos": "(664, 412)",
+          "name": "StandTexture",
+          "number": 4,
+          "startpos": "(567, 412)"
+        },
+        {
+          "endpos": "(543, 130)",
+          "name": "punch",
+          "number": 1,
+          "startpos": "(380, 130)"
+        },
+        {
+          "endpos": "(653, 208)",
+          "name": "recovery",
+          "number": 2,
+          "startpos": "(536, 208)"
+        },
+        {
+          "endpos": "(539, 336)",
+          "name": "PunchTexture",
+          "number": 3,
+          "startpos": "(363, 336)"
+        }
+      ],
+      "name": "Punching"
+    }
+  ]
+}

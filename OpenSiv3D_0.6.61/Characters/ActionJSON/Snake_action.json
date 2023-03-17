@@ -1,0 +1,108 @@
+﻿{
+  "Actions": [
+    {
+      "Acts": [
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 1.0
+          },
+          "Start": {
+            "Conection": [],
+            "start_time": 0.0
+          },
+          "name": "stop"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "stop",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "jump"
+        },
+        {
+          "Continue": {
+            "Conection": [],
+            "length": 1.0
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "jump",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "land"
+        },
+        {
+          "Continue": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "jump",
+                "time": 0.0
+              }
+            ],
+            "length": -1
+          },
+          "Start": {
+            "Conection": [
+              {
+                "from": "end",
+                "name": "stop",
+                "time": 0.0
+              }
+            ],
+            "start_time": -1
+          },
+          "name": "attack"
+        }
+      ],
+      "name": "Attack"
+    }
+  ],
+  "Pos": [
+    {
+      "Acts_pos": [
+        {
+          "endpos": "(356, 239)",
+          "name": "stop",
+          "number": 0,
+          "startpos": "(274, 239)"
+        },
+        {
+          "endpos": "(505, 150)",
+          "name": "jump",
+          "number": 1,
+          "startpos": "(355, 150)"
+        },
+        {
+          "endpos": "(594, 304)",
+          "name": "land",
+          "number": 9,
+          "startpos": "(504, 304)"
+        },
+        {
+          "endpos": "(505, 200)",
+          "name": "attack",
+          "number": 8,
+          "startpos": "(356, 200)"
+        }
+      ],
+      "name": "Attack"
+    }
+  ]
+}
