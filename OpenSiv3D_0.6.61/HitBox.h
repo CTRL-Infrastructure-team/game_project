@@ -1,21 +1,8 @@
 ﻿#pragma once
 #include"Object.h"
-constexpr int rect_size = 70;
+#include"Figure.h"
 
-union Figure{
-	RectF rect;
-	Circle circle;
-	Triangle triangle;
-};
-enum Shape {
-	rect,
-	circle,
-	triangle,
-};
-struct box {
-	Figure box;
-	Shape shape;
-};
+constexpr int rect_size = 70;
 
 enum direction { up_line, down_line, right_line, left_line };
 
@@ -75,10 +62,7 @@ public:
 class HitBox
 {
 public:
-	HitBox(Vec2* pos, Vec2* vel, RectF box);
-	HitBox(Vec2* pos, Vec2* vel, Circle box);
-	HitBox(Vec2* pos, Vec2* vel, Triangle box, Vec2 Relative = Vec2{0,0});
-	HitBox(Vec2* pos, Vec2* vel, box hitbox, Vec2 Relative = Vec2{ 0,0 });
+	HitBox(Vec2* pos, Vec2* vel, Figure Hitbox, Vec2 Relative = Vec2{ 0,0 });
 
 	virtual ~HitBox(){}
 
@@ -90,11 +74,9 @@ public:
 
 	void setPos(Vec2 position);
 
-	box Get_Box() { return hitbox; }
+	Figure Get_Box() { return hitbox; }
 
-	void SetShape(RectF box);
-	void SetShape(Circle box);
-	void SetShape(Triangle box,Vec2 relative);
+	void SetShape(Figure box,Vec2 relative = Vec2{ 0,0 });
 
 	bool touch(direction num) { return physics.touch_flag[num]; }
 	//ステージから影響を受ける
@@ -103,5 +85,5 @@ public:
 	Vec2* pos, PrePos, Relative;
 	PhysicsBox  physics;
 protected:
-	box hitbox;
+	Figure hitbox;
 };

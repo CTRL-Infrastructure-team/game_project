@@ -5,8 +5,7 @@
 #include"Characters/Player/Player.h"
 #include"Characters/Enemy/Enemy.h"
 #include"Block.h"
-
-Grid<Object*> MyLoad(String path);
+#include"Stage.h"
 
 void Main()
 {
@@ -15,7 +14,9 @@ void Main()
 	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 
 	Array<Character*>list;
-	Grid<Object*>map = MyLoad(U"test.json");
+	Stage stage{ U"tutorial.json" };
+	Background background1{ U"背景.png" ,stage.width() };
+	Background background2{ U"木背景.png" ,stage.width(),3 };
 	bool SystemUpdate = false;
 	double Gravity = 1000;
 	//プレイヤーの生成
@@ -36,12 +37,15 @@ void Main()
 		}
 		for (auto& chara : list)
 		{
-			chara->box.stage(&map);
+			chara->box.stage(stage.getMap());
 			chara->update();
 			chara->ActionsUpdate();
 			chara->move();
 			chara->box.update();
 		}
+
+		background1.draw(player.pos);
+		background2.draw(player.pos);
 
 		//落下したらスタートに戻す。(デバッグ用)
 		if (player.pos.y > 1000)player.pos=Vec2(500, 350);
@@ -56,48 +60,9 @@ void Main()
 			{
 				chara->draw_nonvirtual();
 			}
-
-			//ブロックの描写
-			int range = 10;//プレイヤーから何ブロックを描写するか
-			Point pos = player.pos.asPoint() / Point(rect_size, rect_size);//プレイヤーの座標をマップ番号に変換
-			for (int y = 0; y < map.height(); y++)
-			{
-				for (int x = Max(0, pos.x - range); x < Min((int)map.width(), pos.x + range); x++) {
-					Point p(x, y);
-					if (map[p] != NULL)map[p]->draw(p);
-				}
-			}
+			stage.draw(player.pos);
 		}
 		SystemUpdate = not(SystemUpdate);
 	}
 }
 
-
-Grid<Object*> MyLoad(String path) {
-
-	//辞書を作成
-	HashTable<String, Object*> table;
-	for (const auto& object : objects)table.emplace(object->name, object);
-
-	//ファイルをロード
-	JSON json = JSON::Load(path);
-	if (not json)throw Error{ U"ファイルを読み込めませんでした。" };
-
-	//ファイルにあるブロック名を読み込む(ステージで使われていないブロックを読み込もうとしてエラーになるのを防ぐため)
-	Array<String>material_name;
-	for (const auto& object : json[U"object"]) {
-		material_name << object.key;
-	}
-
-	//ステージサイズのmapを用意
-	Grid<Object*>map(json[U"stage_size"].get<Point>(), NULL);
-
-	//mapにファイルのデータを読み込む。
-	for (int i = 0; i < material_name.size(); i++) {
-		for (const auto& elem : json[U"object"][material_name[i]].arrayView()) {
-			map[elem.get<Point>()] = table[material_name[i]];
-		}
-	}
-
-	return map;
-}
