@@ -1,8 +1,8 @@
 ﻿#include "../../stdafx.h"
 #include "Attack.h"
 
-Attack::Attack(HitBox Hitbox,double* power, Character* Attacker, Array<Character*>* list, CharaType target)
-	:hitbox(Hitbox),power(power),attacker(Attacker),list(list),target(target)
+Attack::Attack(Figure Hitbox,double* power, Character* Attacker, Array<Character*>* list, CharaType target)
+	:hitbox(HitBox{ new Vec2{},new Vec2{},Hitbox }), power(power), attacker(Attacker), list(list), target(target)
 {
 	FirstRelative = hitbox.Relative;
 }

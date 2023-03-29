@@ -4,14 +4,14 @@
 #include"../../Acts/Act/Move.h"
 #include"../../Acts/Act/Attack.h"
 
-Snake::Snake(HitBox hitbox, Array<Character*>* List, bool* SystemUpdate, Vec2 init_pos, Vec2 init_vel, Vec2 init_acc)
-	:Enemy(HitBox{ new Vec2{},new Vec2{},hitbox.Get_Box() }, init_pos, init_vel, init_acc, List, SystemUpdate)
+Snake::Snake(Figure Hitbox, Array<Character*>* List, bool* SystemUpdate, Vec2 init_pos, Vec2 init_vel, Vec2 init_acc)
+	:Enemy(Hitbox, init_pos, init_vel, init_acc, List, SystemUpdate)
 {
 	Move* jump;
 	Attack* jump_attack;
 	jump= new Move(&pos, &direction);
 	jump->UniformlyAcceleratedMotion(&vel,&acc, Vec2{ 270,-500 }, Vec2{ 0,100 });
-	jump_attack = new Attack(HitBox{ new Vec2{},new Vec2{},hitbox.Get_Box() }, &power, this, list, player);
+	jump_attack = new Attack(Hitbox, &power, this, list, player);
 	double scale1 , scale2;
 	scale1 = 0.2; scale2 = 0.25;
 

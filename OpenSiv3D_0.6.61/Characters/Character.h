@@ -14,8 +14,8 @@ enum CharaType
 class Character
 {
 public:
-	Character(Vec2 init_pos, Vec2 init_vel, Vec2 init_acc, CharaType chara, HitBox hitbox, Array<Character*>* List, bool* systemUpdate)
-		:pos(init_pos), vel(init_vel), acc(init_acc), type(chara), box(hitbox), list(List)
+	Character(Vec2 init_pos, Vec2 init_vel, Vec2 init_acc, CharaType chara, Figure hitbox, Array<Character*>* List, bool* systemUpdate)
+		:pos(init_pos), vel(init_vel), acc(init_acc), type(chara), box(HitBox{ &pos,&vel,hitbox }), list(List)
 	{
 		*list << this;
 		actions = new ActionManager(systemUpdate);

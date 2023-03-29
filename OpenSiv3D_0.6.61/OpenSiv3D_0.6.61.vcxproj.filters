@@ -183,6 +183,9 @@
     <ClCompile Include="Characters\Player\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Characters\Enemy\Enemy1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -865,6 +868,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Figure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Characters\Enemy\Enemy1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

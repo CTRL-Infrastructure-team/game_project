@@ -7,7 +7,7 @@
 #include"../../Acts/Act/TextureDraw.h"
 
 Player::Player(Vec2 Pos, Vec2 Vel, Vec2 Acc, RectF hitbox, Array<Character*>* list, bool* SystemUpdate)
-	:Character(Pos, Vel, Acc, player, HitBox{ &pos,&vel,hitbox }, list, SystemUpdate)
+	:Character(Pos, Vel, Acc, player, hitbox, list, SystemUpdate)
 {
 	walk_speed = 300;
 	double jump_height = 200;
@@ -25,8 +25,8 @@ Player::Player(Vec2 Pos, Vec2 Vel, Vec2 Acc, RectF hitbox, Array<Character*>* li
 	Attack* kick;
 	jump = new Jump(this); jump->SetJump(jump_gravity,jump_height);
 	jump_fall = new Fall(this); jump_fall->SetG(jump_fall_gravity);
-	punch = new Attack(HitBox{ new Vec2{0,0},new Vec2{0,0} ,RectF{punch_pos,punch_w,punch_h} }, & power, this, list, enemy);
-	kick = new Attack(HitBox{ new Vec2{0,0},new Vec2{0,0},RectF{kick_pos,kick_w,kick_h} }, &power, this, list, enemy);
+	punch = new Attack(RectF{punch_pos,punch_w,punch_h}, & power, this, list, enemy);
+	kick = new Attack(RectF{kick_pos,kick_w,kick_h} , &power, this, list, enemy);
 	punch->drawhitbox = true;
 	kick->drawhitbox = true;
 	actions->ReadJSON(U"../Characters/ActionJSON/Annna_action.json");

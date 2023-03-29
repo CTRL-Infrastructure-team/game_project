@@ -4,7 +4,8 @@
 class Enemy :public Character
 {
 public:
-	Enemy(HitBox hitbox, Vec2 init_pos, Vec2 init_vel, Vec2 init_acc, Array<Character*>* List, bool* SystemUpdate) :Character(init_pos, init_vel, init_acc, CharaType::enemy, HitBox{ &pos,&vel,hitbox.Get_Box() }, List, SystemUpdate)
+	Enemy(Figure hitbox, Vec2 init_pos, Vec2 init_vel, Vec2 init_acc, Array<Character*>* List, bool* SystemUpdate)
+		:Character(init_pos, init_vel, init_acc, CharaType::enemy, hitbox, List, SystemUpdate)
 	{
 		SetHitBoxColor(ColorF(Palette::Red, 0.4));
 	}
@@ -22,7 +23,7 @@ public:
 class Snake :public Enemy
 {
 public:
-	Snake(HitBox hitbox, Array<Character*>* List, bool* SystemUpdate, Vec2 init_pos = Vec2{ 0,0 }, Vec2 init_vel = Vec2{ 0,0 }, Vec2 init_acc = Vec2{ 0,0 });
+	Snake(Figure hitbox, Array<Character*>* List, bool* SystemUpdate, Vec2 init_pos = Vec2{ 0,0 }, Vec2 init_vel = Vec2{ 0,0 }, Vec2 init_acc = Vec2{ 0,0 });
 
 	~Snake() {}
 

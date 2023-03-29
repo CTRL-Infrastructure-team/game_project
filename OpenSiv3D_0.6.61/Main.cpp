@@ -20,7 +20,7 @@ void Main()
 	bool SystemUpdate = false;
 	double Gravity = 1000;
 	//プレイヤーの生成
-	Player player(Vec2{ 500, 350 }, Vec2{ 0,0 }, Vec2{ 0,0 },RectF{ Arg::center(0,0),60,110 }, &list, &SystemUpdate);
+	Player player(Vec2{ 500, 350 }, Vec2{ 0,0 }, Vec2{ 0,0 },RectF{ 0,0,60,110 }, &list, &SystemUpdate);
 	
 	for (auto& chara : list)
 	{
@@ -32,7 +32,7 @@ void Main()
 		ClearPrint();
 		if (KeyZ.down())
 		{
-			(new Snake(HitBox{ new Vec2{},new Vec2{},RectF{Arg::center(0,0),60,50} }, &list, &SystemUpdate, Vec2{ 500,350 }, Vec2{ 100,0 }))
+			(new Snake(RectF{0,0,60,50}, &list, &SystemUpdate, Vec2{ 500,350 }, Vec2{ 100,0 }))
 				->Set_G(&Gravity);//重力加速度セット
 		}
 		for (auto& chara : list)
