@@ -7,7 +7,7 @@ public:
 	Enemy(Figure hitbox, Vec2 init_pos, Vec2 init_vel, Vec2 init_acc, Array<Character*>* List, bool* SystemUpdate)
 		:Character(init_pos, init_vel, init_acc, CharaType::enemy, hitbox, List, SystemUpdate)
 	{
-		SetHitBoxColor(ColorF(Palette::Red, 0.4));
+		SetHitBoxColor(ColorF(Palette::Red, 0.5));
 	}
 	virtual ~Enemy() {}
 

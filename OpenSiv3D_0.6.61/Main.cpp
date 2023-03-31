@@ -10,7 +10,7 @@
 void Main()
 {
 	//各種設定
-	Window::Resize(1000, 600);
+	Window::Resize(1200, 800);
 	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 
 	Array<Character*>list;
@@ -19,14 +19,14 @@ void Main()
 	Background background2{ U"木背景.png" ,stage.width(),3 };
 	bool SystemUpdate = false;
 	double Gravity = 1000;
-	//プレイヤーの生成
+	//キャラクターの生成
 	Player player(Vec2{ 500, 350 }, Vec2{ 0,0 }, Vec2{ 0,0 },RectF{ 0,0,60,110 }, &list, &SystemUpdate);
 	
 	for (auto& chara : list)
 	{
 		chara->Set_G(&Gravity);//重力加速度をセット
 	}
-	
+
 	while (System::Update())
 	{
 		ClearPrint();
